@@ -1,0 +1,129 @@
+.tvseries {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.heading {
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.3px;
+  color: var(--White);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.6rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.poster {
+  position: relative;
+  width: 100%;
+  height: 110px;
+}
+
+.thumbnail {
+  border-radius: 0.8rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bookmark {
+  padding: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.btnBookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: var(--Bookmark-background);
+  opacity: 0.5;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  color: var(--White);
+  opacity: 0.75;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.categoryIcon {
+  height: 1rem;
+}
+
+.cardTitle {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--White);
+}
+
+.hoverContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 150ms ease;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.card:hover .hoverContainer,
+.poster:hover .hoverContainer {
+  opacity: 1;
+}
+
+.playButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 2.85rem;
+  padding: 0.6rem 1.6rem;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.playIcon {
+  width: 1.4rem;
+  height: auto;
+}

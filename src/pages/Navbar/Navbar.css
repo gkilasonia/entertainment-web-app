@@ -1,0 +1,119 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Ensure inline SVGs scale to their container and inherit color */
+.nav-link svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* NavLink base, hover and active states */
+.nav-link {
+  color: var(--Blue-500);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: var(--Red-500);
+}
+
+.nav-link.active {
+  color: var(--White);
+}
+
+.avatar {
+  height: 2.4rem;
+  border: 0.1rem solid var(--White);
+  border-radius: 50%;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .logo-img {
+    width: 3.2rem;
+    height: 2.6rem;
+  }
+
+  .nav-list {
+    gap: 3.2rem;
+  }
+
+  .nav-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .avatar {
+    height: 3.2rem;
+  }
+}
+
+@media (min-width: 90em) {
+  .navbar {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .logo,
+  .logo-img {
+    width: 3.2rem;
+    height: 2.6rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 7.2rem;
+  }
+
+  .nav-list > li,
+  .nav-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nav-actions {
+    margin-top: auto;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+}

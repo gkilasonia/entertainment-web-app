@@ -1,0 +1,189 @@
+.trending {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.heading {
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.3px;
+}
+
+.controls button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.25rem;
+  border-radius: 6px;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.6rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 1.6rem;
+  width: 24rem;
+  height: 14rem;
+  scroll-snap-align: start;
+  cursor: pointer;
+}
+
+.poster {
+  position: relative;
+  width: 24rem;
+  height: 14rem;
+}
+
+.thumbnail {
+  border-radius: 0.8rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  padding: 0.8rem 0.8rem 1.6rem 1.6rem;
+  width: 24rem;
+  height: 14rem;
+}
+
+.bookmark {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnBookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-color: var(--Bookmark-background);
+  opacity: 0.5;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: var(--White);
+  opacity: 0.75;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.categoryIcon {
+  height: 1.2rem;
+}
+
+.cardTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  color: var(--White);
+}
+
+.hoverContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 150ms ease;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.playButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 2.85rem;
+  padding: 0.9rem 2.7rem 0.9rem 0.9rem;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.card:hover .hoverContainer,
+.poster:hover .hoverContainer {
+  opacity: 1;
+}
+
+@media (min-width: 48em) {
+  .trending {
+    gap: 2.4rem;
+  }
+
+  .heading {
+    font-weight: 300;
+    font-size: 3.2rem;
+    line-height: 4rem;
+    letter-spacing: -0.5px;
+  }
+
+  .track {
+    gap: 4rem;
+  }
+
+  .card,
+  .poster {
+    width: 47rem;
+    height: 23rem;
+  }
+
+  .movieInfo {
+    padding: 1.6rem 2.4rem 2.15rem 2.4rem;
+    width: 47rem;
+    height: 23rem;
+  }
+
+  .meta {
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+  }
+
+  .cardTitle {
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3rem;
+  }
+}

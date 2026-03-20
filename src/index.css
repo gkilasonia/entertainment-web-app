@@ -1,0 +1,73 @@
+/* =========================
+   Fonts and Root Variables
+   ========================= */
+@font-face {
+  font-family: "Outfit";
+  src: url("../src/assets/fonts/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Primary */
+  --Gray-50: hsl(0, 0%, 99%);
+  --Red-500: hsl(0, 97%, 63%);
+  --Blue-500: hsl(223, 23%, 46%);
+  --Blue-900: hsl(223, 36%, 14%);
+  --Blue-950: hsl(223, 30%, 9%);
+
+  /* Neutral */
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 0%);
+
+  /* Background */
+  --Bookmark-background: #10141e;
+
+  /* Fonts */
+  --Variable: "Outfit", sans-serif;
+}
+
+/* =========================
+   Global Reset & Utilities
+   ========================= */
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--Variable);
+  min-height: 100dvh;
+  background-color: var(--Blue-950);
+  color: var(--White);
+}
+
+button {
+  font: inherit;
+  border: none;
+  line-height: 1;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 48em) {
+  body {
+    padding: 2.4rem;
+  }
+}
+
+@media (min-width: 90em) {
+  body {
+    padding: 3.2rem 3.6rem 3.2rem 3.2rem;
+  }
+}

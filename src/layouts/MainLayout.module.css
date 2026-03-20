@@ -1,0 +1,63 @@
+.appRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 1.6rem;
+  background-color: var(--Blue-900);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 0 1.6rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.content {
+  min-height: 60vh;
+  min-width: 0;
+}
+
+@media (min-width: 48em) {
+  .appRoot {
+    gap: 3.2rem;
+  }
+
+  .header {
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .main {
+    gap: 3.2rem;
+    padding: 0;
+  }
+}
+
+@media (min-width: 90em) {
+  .appRoot {
+    flex-direction: row;
+    gap: 3.6rem;
+  }
+
+  .header {
+    padding: 3.4rem 2.8rem;
+    border-radius: 2rem;
+    /* Fixed-width sidebar so main can correctly flex */
+    flex: 0 0 96px;
+    width: 96px;
+    height: 93vh;
+  }
+
+  .main {
+    margin-top: 3.2rem;
+    gap: 4rem;
+    padding: 0;
+  }
+}

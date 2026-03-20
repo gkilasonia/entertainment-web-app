@@ -1,0 +1,38 @@
+.searchForm {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.searchButton {
+  background-color: var(--Blue-950);
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  height: 2.4rem;
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  border: none;
+  background-color: var(--Blue-950);
+  color: inherit;
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.srOnly {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}

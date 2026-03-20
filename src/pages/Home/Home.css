@@ -1,0 +1,11 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+@media (min-width: 48em) {
+  .home {
+    gap: 4rem;
+  }
+}
