@@ -10,9 +10,9 @@ import avatar from "../../assets/image-avatar.png";
 export default function Navbar() {
   return (
     <nav className="navbar" aria-label="Main navigation">
-      <div className="logo" aria-hidden="false">
+      <div className="logo">
         <NavLink to="/" className="logo-link">
-          <span className="visually-hidden">Entertainment Web App</span>
+          <span className="sr-only">Entertainment Web App</span>
           <img src={logo} alt="Entertainment logo" className="logo-img" />
         </NavLink>
       </div>
@@ -29,7 +29,7 @@ export default function Navbar() {
               className="nav-icon"
               dangerouslySetInnerHTML={{ __html: home }}
             />
-            <span className="visually-hidden">Home</span>
+            <span className="sr-only">Home</span>
           </NavLink>
         </li>
         <li>
@@ -42,7 +42,7 @@ export default function Navbar() {
               className="nav-icon"
               dangerouslySetInnerHTML={{ __html: movies }}
             />
-            <span className="visually-hidden">Movies</span>
+            <span className="sr-only">Movies</span>
           </NavLink>
         </li>
         <li>
@@ -55,7 +55,7 @@ export default function Navbar() {
               className="nav-icon"
               dangerouslySetInnerHTML={{ __html: tvSeries }}
             />
-            <span className="visually-hidden">TV Series</span>
+            <span className="sr-only">TV Series</span>
           </NavLink>
         </li>
         <li>
@@ -68,7 +68,7 @@ export default function Navbar() {
               className="nav-icon"
               dangerouslySetInnerHTML={{ __html: bookmark }}
             />
-            <span className="visually-hidden">Bookmarks</span>
+            <span className="sr-only">Bookmarks</span>
           </NavLink>
         </li>
       </ul>

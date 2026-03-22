@@ -7,14 +7,7 @@ import bookmarkEmpty from "../../assets/icon-bookmark-empty.svg";
 import iconMovie from "../../assets/icon-category-movie.svg";
 import iconTv from "../../assets/icon-category-tv.svg";
 import styles from "../../components/Recommended/Recommended.module.css";
-
-function slugify(title) {
-  return title
-    .toLowerCase()
-    .replace(/’/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { slugify, resolveThumbnail } from "../../utils/media.js";
 
 export default function Home() {
   const { searchQuery, searchResults, toggleBookmark } = useData();
@@ -32,38 +25,49 @@ export default function Home() {
 
   return (
     <section className="home" aria-label="Search results">
-      <h2 className={styles.heading}>{`Found ${searchResults.length} results for ‘${searchQuery}’`}</h2>
+      <h2
+        className={styles.heading}
+      >{`Found ${searchResults.length} results for ‘${searchQuery}’`}</h2>
       <div className={styles.grid}>
-        {searchResults.map((item, i) => {
+        {searchResults.map((item) => {
           const { title, year, category, rating, isBookmarked } = item;
           const name = item.name ? item.name : slugify(title);
-
-          let imgPath = "";
-          try {
-            imgPath = new URL(
-              `../../assets/thumbnails/${name}/regular/small.jpg`,
-              import.meta.url,
-            ).href;
-          } catch (e) {
-            imgPath = "";
-          }
+          const imgPath = resolveThumbnail(name, "regular", "small");
 
           const categoryIcon = category === "Movie" ? iconMovie : iconTv;
 
           return (
-            <article key={`${title}-${i}`} className={styles.card} aria-label={title}>
+            <article
+              key={item.id || title}
+              className={styles.card}
+              aria-label={title}
+            >
               <div className={styles.poster}>
-                <img className={styles.thumbnail} src={imgPath} alt={title} />
+                {imgPath ? (
+                  <img className={styles.thumbnail} src={imgPath} alt={title} />
+                ) : (
+                  <div
+                    className={styles.thumbnailPlaceholder}
+                    aria-hidden="true"
+                  />
+                )}
               </div>
 
               <div className={styles.info}>
                 <div className={styles.meta}>
-                  <span className={styles.year}>{year}</span>·
+                  <span className={styles.year}>{year}</span>
+                  {" · "}
                   <div className={styles.category}>
-                    <img className={styles.categoryIcon} src={categoryIcon} alt={category} />
+                    <img
+                      className={styles.categoryIcon}
+                      src={categoryIcon}
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <span>{category}</span>
                   </div>
-                  ·<span className={styles.rating}>{rating}</span>
+                  {" · "}
+                  <span className={styles.rating}>{rating}</span>
                 </div>
                 <h2 className={styles.cardTitle}>{title}</h2>
               </div>
@@ -73,9 +77,14 @@ export default function Home() {
                   className={styles.btnBookmark}
                   type="button"
                   aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
+                  aria-pressed={isBookmarked}
                   onClick={() => toggleBookmark(title)}
                 >
-                  <img src={isBookmarked ? bookmarkFull : bookmarkEmpty} alt={isBookmarked ? "Bookmarked" : "Not bookmarked"} />
+                  <img
+                    src={isBookmarked ? bookmarkFull : bookmarkEmpty}
+                    alt=""
+                    aria-hidden="true"
+                  />
                 </button>
               </div>
             </article>

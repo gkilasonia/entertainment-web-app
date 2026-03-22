@@ -4,8 +4,10 @@ import React, {
   useEffect,
   useState,
   useMemo,
+  useCallback,
 } from "react";
 import { useLocation } from "react-router-dom";
+import { slugify } from "../utils/media.js";
 
 const DataContext = createContext(null);
 
@@ -26,7 +28,12 @@ export function DataProvider({ children }) {
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Failed to load data: ${res.status}`);
         const json = await res.json();
-        if (mounted) setData(json);
+        // Ensure each item has a stable `id` for list keys and identity
+        const withIds = (json || []).map((it, idx) => ({
+          ...it,
+          id: it.id || slugify(it.title) || `item-${idx}`,
+        }));
+        if (mounted) setData(withIds);
       } catch (err) {
         if (mounted) setError(err.message || String(err));
       } finally {
@@ -40,15 +47,18 @@ export function DataProvider({ children }) {
     };
   }, []);
 
-  const toggleBookmark = (title) => {
-    setData((prev) =>
-      prev.map((item) =>
-        item.title === title
-          ? { ...item, isBookmarked: !item.isBookmarked }
-          : item,
-      ),
-    );
-  };
+  const toggleBookmark = useCallback(
+    (title) => {
+      setData((prev) =>
+        prev.map((item) =>
+          item.title === title
+            ? { ...item, isBookmarked: !item.isBookmarked }
+            : item,
+        ),
+      );
+    },
+    [setData],
+  );
 
   const location = useLocation();
 
@@ -94,22 +104,21 @@ export function DataProvider({ children }) {
     );
   }, [routeFiltered, normalizedQuery]);
 
-  return (
-    <DataContext.Provider
-      value={{
-        data,
-        setData,
-        loading,
-        error,
-        toggleBookmark,
-        searchQuery,
-        setSearchQuery,
-        searchResults,
-      }}
-    >
-      {children}
-    </DataContext.Provider>
+  const value = useMemo(
+    () => ({
+      data,
+      setData,
+      loading,
+      error,
+      toggleBookmark,
+      searchQuery,
+      setSearchQuery,
+      searchResults,
+    }),
+    [data, loading, error, toggleBookmark, searchQuery, searchResults],
   );
+
+  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 }
 
 export function useData() {

@@ -13,7 +13,7 @@ export default function SearchBar() {
       aria-label="Movie search"
       onSubmit={(e) => e.preventDefault()}
     >
-      <label htmlFor="movie-search" className={styles.srOnly}>
+      <label htmlFor="movie-search" className="sr-only">
         Search movies or TV series
       </label>
       <button
@@ -21,7 +21,12 @@ export default function SearchBar() {
         className={styles.searchButton}
         aria-label="Submit search"
       >
-        <img src={searchIcon} alt="Search" className="search-icon" />
+        <img
+          src={searchIcon}
+          alt=""
+          aria-hidden="true"
+          className="search-icon"
+        />
       </button>
       <input
         id="movie-search"

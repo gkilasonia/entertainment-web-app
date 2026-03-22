@@ -2,7 +2,7 @@ import "./LoginSignup.css";
 
 export default function LoginSignup() {
   return (
-    <main className="login-root">
+    <div className="login-root">
       <section className="login-panel" aria-labelledby="login-heading">
         <h1 id="login-heading">Sign in</h1>
         <form className="login-form" aria-describedby="login-desc">
@@ -23,6 +23,6 @@ export default function LoginSignup() {
           <button type="submit">Login</button>
         </form>
       </section>
-    </main>
+    </div>
   );
 }
