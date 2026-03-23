@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, {
   createContext,
   useContext,
@@ -74,15 +75,15 @@ export function DataProvider({ children }) {
 
     // MOVIES: paths like /movies
     if (path.startsWith("/movies")) {
-      return data.filter(
-        (item) => String(item.category).toLowerCase() === "movie",
+      return data.filter((item) =>
+        String(item.category).toLowerCase().includes("movie"),
       );
     }
 
     // TV SERIES: paths like /tv-series or /tv
     if (path.startsWith("/tv-series") || path.startsWith("/tv")) {
-      return data.filter(
-        (item) => String(item.category).toLowerCase() === "tv series",
+      return data.filter((item) =>
+        String(item.category).toLowerCase().includes("tv"),
       );
     }
 
@@ -93,7 +94,7 @@ export function DataProvider({ children }) {
 
     // default: return all
     return data;
-  }, [data, location.pathname]);
+  }, [data, location]);
 
   const searchResults = useMemo(() => {
     if (!normalizedQuery) return [];

@@ -12,10 +12,18 @@ export default function Movies() {
   const { data, toggleBookmark, searchQuery, searchResults } = useData();
 
   const normalizedQuery = (searchQuery || "").trim();
-
+  const results = useMemo(() => searchResults || [], [searchResults]);
+  const items = useMemo(
+    () =>
+      (data || []).filter((d) => {
+        if (!d || !d.category) return false;
+        const cat = String(d.category).toLowerCase();
+        return cat === "movie" || cat === "movies" || cat.startsWith("movie");
+      }),
+    [data],
+  );
   // If searching, show searchResults; otherwise show movies list
   if (normalizedQuery) {
-    const results = useMemo(() => searchResults || [], [searchResults]);
 
     return (
       <section className={styles.movies} aria-label="Search results">
@@ -114,15 +122,6 @@ export default function Movies() {
   }
 
   // normal Movies page
-  const items = useMemo(
-    () =>
-      (data || []).filter((d) => {
-        if (!d || !d.category) return false;
-        const cat = String(d.category).toLowerCase();
-        return cat === "movie" || cat === "movies" || cat.startsWith("movie");
-      }),
-    [data],
-  );
 
   return (
     <section className={styles.movies} aria-label="Movies">

@@ -24,7 +24,7 @@ export default function Recommended() {
     <section className={styles.recommended} aria-label="Recommended content">
       <h3 className={styles.heading}>Recommended for you</h3>
       <div className={styles.grid}>
-        {items.map((item, i) => {
+        {items.map((item) => {
           const { title, year, category, rating, isBookmarked } = item;
           const name = item.name ? item.name : slugify(title);
           const imgPath = resolveThumbnail(name, "regular", "small");

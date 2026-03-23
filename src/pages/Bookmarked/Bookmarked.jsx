@@ -46,7 +46,7 @@ export default function Bookmarked() {
           className={styles.heading}
         >{`Found ${searchResults.length} results for ‘${searchQuery}’`}</h3>
         <div className={styles.grid}>
-          {searchResults.map((item, i) => {
+          {searchResults.map((item) => {
             const { title, name, year, category, rating, isBookmarked } = item;
             const slugName = name ? name : slugify(title);
             const imgPath = resolveThumbnail(slugName, "regular", "small");

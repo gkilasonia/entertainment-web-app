@@ -15,7 +15,7 @@ export function resolveThumbnail(name, folder = "regular", size = "small") {
       `../assets/thumbnails/${name}/${folder}/${size}.jpg`,
       import.meta.url,
     ).href;
-  } catch (e) {
+  } catch {
     return null;
   }
 }
