@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./SearchBar.module.css";
 import searchIcon from "../../assets/icon-search.svg";
 import { useData } from "../../context/DataContext.jsx";

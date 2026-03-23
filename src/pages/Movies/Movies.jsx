@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import styles from "./Movies.module.css";
 import { useData } from "../../context/DataContext.jsx";
 import bookmarkFull from "../../assets/icon-bookmark-full.svg";
@@ -30,8 +30,7 @@ export default function Movies() {
 
         <div className={styles.grid}>
           {results.map((item) => {
-            const { id, title, name, year, category, rating, isBookmarked } =
-              item;
+            const { title, name, year, category, rating, isBookmarked } = item;
             const slugName = name ? name : slugify(title);
 
             const imgPath = resolveThumbnail(slugName, "regular", "small");
@@ -40,7 +39,7 @@ export default function Movies() {
 
             return (
               <article
-                key={item.id || id}
+                key={item.id || title}
                 className={styles.card}
                 aria-label={title}
               >
@@ -84,7 +83,7 @@ export default function Movies() {
                         isBookmarked ? "Remove bookmark" : "Add bookmark"
                       }
                       aria-pressed={isBookmarked}
-                      onClick={() => toggleBookmark(id)}
+                      onClick={() => toggleBookmark(title)}
                     >
                       <img
                         src={isBookmarked ? bookmarkFull : bookmarkEmpty}

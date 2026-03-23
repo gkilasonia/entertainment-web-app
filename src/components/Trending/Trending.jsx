@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef, useMemo } from "react";
 import styles from "./Trending.module.css";
 import { useData } from "../../context/DataContext.jsx";
 import bookmarkFull from "../../assets/icon-bookmark-full.svg";
@@ -7,7 +7,6 @@ import iconMovie from "../../assets/icon-category-movie.svg";
 import iconTv from "../../assets/icon-category-tv.svg";
 import iconPlay from "../../assets/icon-play.svg";
 import { slugify, resolveThumbnail } from "../../utils/media.js";
-import { useMemo } from "react";
 
 export default function Trending() {
   const listRef = useRef(null);

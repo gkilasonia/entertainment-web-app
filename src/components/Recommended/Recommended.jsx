@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import styles from "./Recommended.module.css";
 import { useData } from "../../context/DataContext.jsx";
 import bookmarkFull from "../../assets/icon-bookmark-full.svg";
