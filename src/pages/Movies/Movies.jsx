@@ -30,7 +30,8 @@ export default function Movies() {
 
         <div className={styles.grid}>
           {results.map((item) => {
-            const { title, name, year, category, rating, isBookmarked } = item;
+            const { id, title, name, year, category, rating, isBookmarked } =
+              item;
             const slugName = name ? name : slugify(title);
 
             const imgPath = resolveThumbnail(slugName, "regular", "small");
@@ -39,7 +40,7 @@ export default function Movies() {
 
             return (
               <article
-                key={item.id || title}
+                key={item.id || id}
                 className={styles.card}
                 aria-label={title}
               >
@@ -83,7 +84,7 @@ export default function Movies() {
                         isBookmarked ? "Remove bookmark" : "Add bookmark"
                       }
                       aria-pressed={isBookmarked}
-                      onClick={() => toggleBookmark(title)}
+                      onClick={() => toggleBookmark(id)}
                     >
                       <img
                         src={isBookmarked ? bookmarkFull : bookmarkEmpty}
