@@ -24,7 +24,6 @@ export default function Movies() {
   );
   // If searching, show searchResults; otherwise show movies list
   if (normalizedQuery) {
-
     return (
       <section className={styles.movies} aria-label="Search results">
         <h3 className={styles.heading}>Search results</h3>
