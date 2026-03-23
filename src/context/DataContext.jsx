@@ -49,12 +49,10 @@ export function DataProvider({ children }) {
   }, []);
 
   const toggleBookmark = useCallback(
-    (title) => {
+    (id) => {
       setData((prev) =>
         prev.map((item) =>
-          item.title === title
-            ? { ...item, isBookmarked: !item.isBookmarked }
-            : item,
+          item.id === id ? { ...item, isBookmarked: !item.isBookmarked } : item,
         ),
       );
     },
