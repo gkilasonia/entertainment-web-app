@@ -1,0 +1,66 @@
+.card {
+  display: block;
+}
+.poster {
+  position: relative;
+}
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+.thumbnailPlaceholder {
+  background: #ddd;
+  width: 100%;
+  height: 140px;
+}
+.hoverContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playButton {
+  display: inline-flex;
+  align-items: center;
+}
+.playIcon {
+  width: 16px;
+  height: 16px;
+}
+.playText {
+  margin-left: 8px;
+}
+.info {
+  padding: 8px;
+}
+.meta {
+  font-size: 12px;
+  color: #666;
+}
+.cardTitle {
+  font-size: 16px;
+  margin: 4px 0;
+}
+.bookmark {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+.btnBookmark {
+  background: transparent;
+  border: none;
+}
+.category {
+  display: inline-flex;
+  align-items: center;
+}
+.categoryIcon {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+}
+.year,
+.rating {
+  color: #999;
+}

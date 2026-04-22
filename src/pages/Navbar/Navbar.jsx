@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.svg";
-import home from "../../assets/icon-nav-home.svg?raw";
-import movies from "../../assets/icon-nav-movies.svg?raw";
-import tvSeries from "../../assets/icon-nav-tv-series.svg?raw";
-import bookmark from "../../assets/icon-nav-bookmark.svg?raw";
+import home from "../../assets/icon-nav-home.svg";
+import movies from "../../assets/icon-nav-movies.svg";
+import tvSeries from "../../assets/icon-nav-tv-series.svg";
+import bookmark from "../../assets/icon-nav-bookmark.svg";
 import avatar from "../../assets/image-avatar.png";
 
 export default function Navbar() {
@@ -24,11 +24,7 @@ export default function Navbar() {
             end
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <span
-              aria-hidden="true"
-              className="nav-icon"
-              dangerouslySetInnerHTML={{ __html: home }}
-            />
+            <img src={home} className="nav-icon" aria-hidden="true" alt="" />
             <span className="sr-only">Home</span>
           </NavLink>
         </li>
@@ -37,11 +33,7 @@ export default function Navbar() {
             to="/movies"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <span
-              aria-hidden="true"
-              className="nav-icon"
-              dangerouslySetInnerHTML={{ __html: movies }}
-            />
+            <img src={movies} className="nav-icon" aria-hidden="true" alt="" />
             <span className="sr-only">Movies</span>
           </NavLink>
         </li>
@@ -50,10 +42,11 @@ export default function Navbar() {
             to="/tv-series"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <span
-              aria-hidden="true"
+            <img
+              src={tvSeries}
               className="nav-icon"
-              dangerouslySetInnerHTML={{ __html: tvSeries }}
+              aria-hidden="true"
+              alt=""
             />
             <span className="sr-only">TV Series</span>
           </NavLink>
@@ -63,10 +56,11 @@ export default function Navbar() {
             to="/bookmarks"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <span
-              aria-hidden="true"
+            <img
+              src={bookmark}
               className="nav-icon"
-              dangerouslySetInnerHTML={{ __html: bookmark }}
+              aria-hidden="true"
+              alt=""
             />
             <span className="sr-only">Bookmarks</span>
           </NavLink>

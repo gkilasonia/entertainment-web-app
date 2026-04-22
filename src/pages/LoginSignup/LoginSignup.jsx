@@ -1,11 +1,18 @@
-import "./LoginSignup.css";
-
 export default function LoginSignup() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    // no-op: placeholder for real auth
+  }
+
   return (
     <div className="login-root">
       <section className="login-panel" aria-labelledby="login-heading">
         <h1 id="login-heading">Sign in</h1>
-        <form className="login-form" aria-describedby="login-desc">
+        <form
+          className="login-form"
+          aria-describedby="login-desc"
+          onSubmit={handleSubmit}
+        >
           <p id="login-desc">Sign in to manage your bookmarks and settings.</p>
           <label>
             <span className="sr-only">Email</span>
