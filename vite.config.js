@@ -5,11 +5,16 @@ import svgr from "vite-plugin-svgr";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    svgr(),
+    svgr({ exportAsDefault: true }),
     react({
       babel: {
         plugins: [["babel-plugin-react-compiler"]],
       },
     }),
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
+  },
 });

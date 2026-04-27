@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../../assets/logo.svg";
-import home from "../../assets/icon-nav-home.svg";
-import movies from "../../assets/icon-nav-movies.svg";
-import tvSeries from "../../assets/icon-nav-tv-series.svg";
-import bookmark from "../../assets/icon-nav-bookmark.svg";
+import logoUrl from "../../assets/logo.svg?url";
+import HomeIcon from "../../components/Icons/HomeIcon.jsx";
+import MoviesIcon from "../../components/Icons/MovieIcon.jsx";
+import TvIcon from "../../components/Icons/TvIcon.jsx";
+import BookmarkIcon from "../../components/Icons/BookmarkIcon.jsx";
 import avatar from "../../assets/image-avatar.png";
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="logo">
         <NavLink to="/" className="logo-link">
           <span className="sr-only">Entertainment Web App</span>
-          <img src={logo} alt="Entertainment logo" className="logo-img" />
+          <img src={logoUrl} alt="Entertainment logo" className="logo-img" />
         </NavLink>
       </div>
 
@@ -24,7 +24,7 @@ export default function Navbar() {
             end
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <img src={home} className="nav-icon" aria-hidden="true" alt="" />
+            <HomeIcon className="nav-icon" aria-hidden="true" />
             <span className="sr-only">Home</span>
           </NavLink>
         </li>
@@ -33,7 +33,7 @@ export default function Navbar() {
             to="/movies"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <img src={movies} className="nav-icon" aria-hidden="true" alt="" />
+            <MoviesIcon className="nav-icon" aria-hidden="true" />
             <span className="sr-only">Movies</span>
           </NavLink>
         </li>
@@ -42,12 +42,7 @@ export default function Navbar() {
             to="/tv-series"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <img
-              src={tvSeries}
-              className="nav-icon"
-              aria-hidden="true"
-              alt=""
-            />
+            <TvIcon className="nav-icon" aria-hidden="true" />
             <span className="sr-only">TV Series</span>
           </NavLink>
         </li>
@@ -56,12 +51,7 @@ export default function Navbar() {
             to="/bookmarks"
             className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
           >
-            <img
-              src={bookmark}
-              className="nav-icon"
-              aria-hidden="true"
-              alt=""
-            />
+            <BookmarkIcon className="nav-icon" aria-hidden="true" />
             <span className="sr-only">Bookmarks</span>
           </NavLink>
         </li>

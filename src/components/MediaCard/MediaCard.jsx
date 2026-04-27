@@ -1,9 +1,9 @@
 import stylesLocal from "./MediaCard.module.css";
-import bookmarkFull from "../../assets/icon-bookmark-full.svg";
-import bookmarkEmpty from "../../assets/icon-bookmark-empty.svg";
-import iconMovie from "../../assets/icon-category-movie.svg";
-import iconTv from "../../assets/icon-category-tv.svg";
-import iconPlay from "../../assets/icon-play.svg";
+import bookmarkFull from "../../assets/icon-bookmark-full.svg?url";
+import bookmarkEmpty from "../../assets/icon-bookmark-empty.svg?url";
+import iconMovie from "../../assets/icon-category-movie.svg?url";
+import iconTv from "../../assets/icon-category-tv.svg?url";
+import iconPlay from "../../assets/icon-play.svg?url";
 
 export default function MediaCard({
   item,

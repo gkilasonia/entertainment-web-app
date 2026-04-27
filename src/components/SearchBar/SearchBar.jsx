@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css";
-import searchIcon from "../../assets/icon-search.svg";
+import searchIcon from "../../assets/icon-search.svg?url";
 import { useData } from "../../context/DataContext.jsx";
 
 export default function SearchBar() {
