@@ -61,39 +61,41 @@ export default function MediaCard({
         </div>
       </div>
 
-      <div className={css.info}>
-        <div className={css.meta}>
-          <span className={css.year}>{year}</span>
-          {" · "}
-          <div className={css.category}>
+      <div className={css.infoBookmarkContainer}>
+        <div className={css.bookmark}>
+          <button
+            className={css.btnBookmark}
+            type="button"
+            aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
+            aria-pressed={isBookmarked}
+            onClick={() => onToggleBookmark(item.id)}
+          >
             <img
-              className={css.categoryIcon}
-              src={categoryIcon}
+              src={isBookmarked ? bookmarkFull : bookmarkEmpty}
               alt=""
               aria-hidden="true"
             />
-            <span>{category}</span>
-          </div>
-          {" · "}
-          <span className={css.rating}>{rating}</span>
+          </button>
         </div>
-        <h3 className={css.cardTitle}>{title}</h3>
-      </div>
 
-      <div className={css.bookmark}>
-        <button
-          className={css.btnBookmark}
-          type="button"
-          aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
-          aria-pressed={isBookmarked}
-          onClick={() => onToggleBookmark(item.id)}
-        >
-          <img
-            src={isBookmarked ? bookmarkFull : bookmarkEmpty}
-            alt=""
-            aria-hidden="true"
-          />
-        </button>
+        <div className={css.info}>
+          <div className={css.meta}>
+            <span className={css.year}>{year}</span>
+            {" · "}
+            <div className={css.category}>
+              <img
+                className={css.categoryIcon}
+                src={categoryIcon}
+                alt=""
+                aria-hidden="true"
+              />
+              <span>{category}</span>
+            </div>
+            {" · "}
+            <span className={css.rating}>{rating}</span>
+          </div>
+          <h3 className={css.cardTitle}>{title}</h3>
+        </div>
       </div>
     </article>
   );
